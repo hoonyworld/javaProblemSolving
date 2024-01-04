@@ -19,13 +19,54 @@
 ## My Solution
 
 ```java
+import java.util.Scanner;
 
+class Main {
+    public String solution(String str) {
+        StringBuilder convertString = new StringBuilder(str);
+        String upperCaseString = str.toUpperCase();
+        String lowerCaseString = str.toLowerCase();
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == upperCaseString.charAt(i)) {
+                convertString.setCharAt(i, str.toLowerCase().charAt(i));
+            } else if (str.charAt(i) == lowerCaseString.charAt(i)) {
+                convertString.setCharAt(i, str.toUpperCase().charAt(i));
+            }
+        }
+        return convertString.toString();
+    }
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String str = kb.next();
+        System.out.println(T.solution(str));
+    }
+}
 ```
 
 ## Model Solution
 
 ```java
+import java.util.*;
 
+class Main {
+    public String solution(String str) {
+        String answer = "";
+        for (char x : str.toCharArray()) {
+            if (Character.isLowerCase(x))
+                answer += Character.toUpperCase(x);
+            else
+                answer += Character.toLowerCase(x);
+        }
+        
+        /*for(char x : str.toCharArray()){
+			if(x>=97 && x<=122) answer+=(char)(x-32);
+			else answer+=(char)(x+32);
+		}*/
+        return answer;
+    }
+}
 ```
 
 ## Refactoring
