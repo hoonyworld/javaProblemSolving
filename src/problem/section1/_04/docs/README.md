@@ -2,8 +2,8 @@
 
 ## KeyWord
 
-- LIFO
-- 2차원 배열
+- LIFO (Stack 자료구조 이용 시)
+- StringBuilder의 가변성 및 유용한 메서드
 
 ## Problem Requirements
 
@@ -120,9 +120,6 @@ class Main {
     }
   }
 }
-
-
-
 ```
 
 ## Refactoring
@@ -174,7 +171,59 @@ class Main {
 - 다만, 강사님의 경우 매개변수 n을 사용하지 않으셨다. 
   - 이는 ArrayList가 아닌 배열로 구현했을 경우 고정된 크기를 표현해 주어야 하기에 매개변수 n을 받아오는 것이 적합하나, ArrayList로 구현을 하고 있으므로 매개변수 n을 받아올 필요가 없다고 생각되었다. 따라서 그 부분을 제외하여 로직을 구성하였다.
 
+## Additional Learning
+
+```java
+package problem.section1._04;
+
+import java.util.*;
+
+class Main {
+  public List<String> solution(String[] str) {
+    List<String> answer = new ArrayList<>();
+
+    for (String x : str) {
+      Stack<Character> stack = new Stack<>();
+      for (char c : x.toCharArray()) {
+        stack.push(c);
+      }
+
+      StringBuilder convertString = new StringBuilder(); // 반복문마다 새로운 StringBuilder의 인스턴스를 생성
+      while (!stack.isEmpty()) {
+        convertString.append(stack.pop()); 
+      }
+
+      answer.add(convertString.toString());
+    }
+    return answer;
+  }
+
+  public static void main(String[] args) {
+    Main T = new Main();
+    Scanner kb = new Scanner(System.in);
+
+    int count = kb.nextInt();
+    String[] str = new String[count];
+
+    for (int i = 0; i < count; i++) {
+      str[i] = kb.next();
+    }
+
+    for (String x : T.solution(str)) {
+      System.out.println(x);
+    }
+  }
+}
+```
+- 처음에 문제를 봤을대 때 문자열을 문자로 변환하여 LIFO인 스택 자료구조를 활용해보자고 생각했었다. 하지만 실력이 부족해서 Stack 자료구조를 어떻게 활용하면 좋을 지 생각이 나지 않았었다.
+- 그래서 리팩토링 후 추가 학습을 통해 Stack 자료구조를 사용해서 문자열을 거꾸로 출력해보는 과정을 구현해보았다.
+- 자료구조를 학습해 본다는 측면에서는 좋았지만, 결론적으로는 코드가 더욱 복잡해졌다. 
+- 결론 : 간단한 방법이 이미 존재하므로 Stack 자료구조를 사용하는 방법만 알아두자
+
 ## What I Learned
 -  StringBuilder 클래스는 객체를 가변으로 바꿔 하나의 객체 내에서 문자열을 변경할 수 있게 해줄 뿐만 아니라, 변경할 때 유용하게 사용할 수 있는 다양한 메서드를 제공한다. 따라서 문자열을 변경해야 할 때 우선적으로 StringBuilder 클래스를 고려하자
 - lt, rt로 lt > rt 까지 반복을 수행해서 문자를 직접 변경하는 기본적인 방법도 기억해두자  
 - 배열 or 리스트 내의 요소들이 각각 다른 작업을 수행해야 한다면 요소를 매개변수로 받고, 공통적인 작업을 수행해야 한다면, 배열 or 리스트 자체를 매개변수로 받는 방식으로 로직을 구현하자
+- append와 add의 차이점을 알아주자
+  - append는 StringBuilder 또는 StringBuffer 클래스에서 사용되며 문자열 끝에 새로운 문자열을 추가하기 위해 사용
+  - add는 ArrayList, LinkedList, HashSet 등의 컬렉션 클래스에서 사용되며 컬렉션에 새로운 요소를 추가할 때 사용
