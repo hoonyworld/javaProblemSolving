@@ -2,7 +2,8 @@
 
 ## KeyWord
 
-- 중복 요소 제거
+- 중복 요소를 어떻게 제거할 것 인가?
+- LinkedHashSet (들어온 순서 보장)
 
 ## Problem Requirements
 
