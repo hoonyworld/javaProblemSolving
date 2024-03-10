@@ -107,7 +107,32 @@ class Main {
 ## Refactoring
 
 ```java
+import java.util.*;
 
+class Main {
+  public String solution(String str) {
+    StringBuilder answer = new StringBuilder();
+    Set<Character> hash = new LinkedHashSet<>();
+
+    for (Character c : str.toCharArray()) {
+      hash.add(c);
+    }
+
+    for (Character c : hash) {
+      answer.append(c);
+    }
+
+    return answer.toString();
+  }
+
+
+  public static void main(String[] args) {
+    Main T = new Main();
+    Scanner kb = new Scanner(System.in);
+    String duplicateString = kb.next();
+    System.out.println(T.solution(duplicateString));
+  }
+}
 ```
 ### 시간복잡도 관련 인사이트
 ![img.png](img.png)
