@@ -4,7 +4,7 @@ import java.util.*;
 
 class Main {
     public String solution(String str) {
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         Set<Character> hash = new LinkedHashSet<>();
 
         for (Character c : str.toCharArray()) {
@@ -12,10 +12,10 @@ class Main {
         }
 
         for (Character c : hash) {
-            answer += String.valueOf(c);
+            answer.append(c);
         }
 
-        return answer;
+        return answer.toString();
     }
 
     public static void main(String[] args) {
