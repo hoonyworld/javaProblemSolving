@@ -1,7 +1,7 @@
 # Problem - 회문 문자열
 
 ## KeyWord
-
+- equalsIgnoreCase()
 - StringBuilder의 reverse() 메서드
 - ==, equals() 의 정확한 개념
 
