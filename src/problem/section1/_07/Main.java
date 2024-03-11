@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 class Main {
     public String solution(String str) {
-        String lowerStr = str.toLowerCase();
-        StringBuilder reverseStrBuilder = new StringBuilder(lowerStr).reverse();
+        String answer = "NO";
+        StringBuilder reverseStrBuilder = new StringBuilder(str).reverse();
 
-//        if (sb.reverse().toString() == sb.toString()) {
-        if (lowerStr.equals(reverseStrBuilder.toString())) {
+        if (str.equalsIgnoreCase(reverseStrBuilder.toString())) {
             return "YES";
-        } else
-            return "NO";
+        }
+
+        return answer;
     }
 
     public static void main(String[] args) {
