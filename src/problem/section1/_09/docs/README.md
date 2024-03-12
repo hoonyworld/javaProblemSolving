@@ -21,6 +21,10 @@
 - for문 순회
   - i < index 까지 0이 있으면 remove()로 지움
 
+### 수정전략
+- Integer 리스트에 저장하니, str.charAt(i)를 add 하는데 형변환에 어려움이 있었음.
+  - char로 리턴하기 때문에 (int)로 형변환을 해준다고 해도 ASCII의 10진수로 변환되어 저장됨.
+  - 따라서 Character 리스트로 만들고, answer에 누적해서 String으로 리턴하는 방식 채택.
 
 ## My Solution
 
