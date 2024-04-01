@@ -136,7 +136,9 @@ class Main {
 ```
 ### 시간복잡도 관련 인사이트
 ![img.png](img.png)
-출처 : https://velog.io/@jiyaho/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%8B%9C%EA%B0%84-%EC%A0%9C%ED%95%9C%EA%B3%BC-%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84
+
+[출처]
+https://velog.io/@jiyaho/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%8B%9C%EA%B0%84-%EC%A0%9C%ED%95%9C%EA%B3%BC-%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84
 - 그림에서는 제한 시간이 1초일 때, N의 범위에 따른 이상적인 시간복잡도를 설명하고 있다.
 - 현재 이 문제의 시간 제한은 1초, N을 의미하는 문자열 길이 제한은 100이다.
   - 따라서 다른 시간복잡도 보다 상대적으로 느린 O(N^3) 이하인 알고리즘을 설계해도 문제가 없다는 것이다.
