@@ -15,19 +15,20 @@ class Main {
             }
         }
 
-        int index = 0;
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) != '0') {
-                index = i;
-                break;
-            }
-        }
-
+//        int index = 0;
+//        for (int i = 0; i < list.size(); i++) {
+//            if (list.get(i) != '0') {
+//                index = i;
+//                break;
+//            }
+//        }
+//
 //        for (int i = 0; i < index; i++) {
 //            if (list.get(i) == '0') {
 //                list.remove(i);
 //            }
 //        }
+
         while (list.get(0) == '0') {
             list.remove(0);
         }
