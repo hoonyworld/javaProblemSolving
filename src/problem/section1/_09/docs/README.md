@@ -31,13 +31,66 @@
 ## My Solution
 
 ```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+class Main {
+    public String solution(String str) {
+        String answer = "";
+        List<Character> list = new ArrayList<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isDigit(str.charAt(i))) {
+                list.add(str.charAt(i));
+            }
+        }
+        
+        while (list.get(0) == '0') {
+            list.remove(0);
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+            answer += String.valueOf(list.get(i));
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String str = kb.next();
+        System.out.println(T.solution(str));
+    }
+}
 ```
 
 ## Model Solution
 
 ```java
+import java.util.*;
+class Main {	
+	public int solution(String s){
+		//int answer=0;
+		String answer="";
+		for(char x : s.toCharArray()){
+			//if(x>=48 && x<=57) answer=answer*10+(x-48);
+			/*if(Character.isDigit(x)){
+				answer=answer*10+ Character.getNumericValue(x);
+			}*/
+			if(Character.isDigit(x)) answer+=x;
+		}
+		return Integer.parseInt(answer);
+	}
 
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		String str=kb.next();
+		System.out.print(T.solution(str));
+	}
+}
 ```
 
 ## Refactoring
@@ -45,9 +98,18 @@
 ```java
 
 ```
+1. ASCII vs Character 클래스의 isDigit
+- 강사님의 ASCII 코드를 사용한 방식은 식을 생각해 내기가 쉽지 않을 것 같다. 
+- 결론 : 따라서 Character.isDigit()으로 앞으로 숫자 여부를 판단하자
+
+2. 코드의 간결화
+- 나는 숫자만 따로 Arraylist로 추출하고, 앞에 있는 의미없는 0을 리스트에서 제거하고, 다시 리스트 요소를 하나하나 String.valueOf()로 합쳤다. 
+- 강사님은 숫자만 answer에 저장하고, Integer.parseInt()로 앞에 있는 의미없는 0을 제거해주었다.
+- 결론 : 간결한 코드가 최고다. 강사님의 방식을 이용하자
 
 ### 리팩토링 방향
+1. 강사님의 방식을 이용하여 불필요한 리스트를 제거해 보다 간결한 코드를 만들자.
 
 ## What I Learned
-
--
+- Character 클래스의 isDigit()은 매개변수 x(문자형)이 숫자이면 true를 반환한다.
+- 48~57 사이의 10진수는 순서대로 문자 '0'~'9'를 나타낸다.
