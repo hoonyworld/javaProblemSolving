@@ -25,6 +25,8 @@
 - Integer 리스트에 저장하니, str.charAt(i)를 add 하는데 형변환에 어려움이 있었음.
   - char로 리턴하기 때문에 (int)로 형변환을 해준다고 해도 ASCII의 10진수로 변환되어 저장됨.
   - 따라서 Character 리스트로 만들고, answer에 누적해서 String으로 리턴하는 방식 채택.
+- 리스트 원소를 순회하며 처음으로 0이 아닌 숫자가 등장하는 index를 찾고, 그 index전까지 for문으로 0을 remove() 해주려 했으나, 원소의 index가 변하면서, 문제 발생
+  - 따라서 while 문으로 list.get(0) == '0' 조건 하에서 0을 remove 해주는 로직을 도입해, index 문제 해결 
 
 ## My Solution
 
