@@ -13,7 +13,7 @@
 ## Problem Approach Strategy
 
 - 일단, 한번에 1 ~ 2계단 까지만 올라간다 했으므로, 누적합이 아닌 피보나치임을 확인
-- f(n) = f(n-1) + f(n-2) 단, n > 2 임을 이용해서 반복문 설계
+- f(n) = f(n-1) + f(n-2) 단, i = 2; i < num; i++ 임을 이용해서 반복문 설계
 
 
 ## My Solution
